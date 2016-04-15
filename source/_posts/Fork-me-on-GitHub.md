@@ -7,17 +7,17 @@ date: 2016-04-15 16:43:31
 
 <!--head-->
 
-???????Fork me on GitHub??.
+在首页上添加了Fork me on GitHub图标.
 
-????????.O(?_?)O~
+貌似更加高大上了.O(∩_∩)O~
 
-### ????:
+### 修改文件:
 
 - themes\landscape\layout\layout.ejs
 
-### ????:
+### 修改内容:
 
-`body`????????, ??????**github??**??**????**.
+`body`末尾添加以下内容, 注意自己修改**github地址**以及**图标位置**.
 
 ```html
   <a href="https://github.com/aotian16">
@@ -25,9 +25,9 @@ date: 2016-04-15 16:43:31
   </a>
 ```
 
-### ????
+### 参考文章
 
-- [Hexo?????Jacman???NexT.Mist](http://codepub.cn/2016/03/20/Hexo-blog-theme-switching-from-Jacman-to-NexT-Mist/)
+- [Hexo博客主题从Jacman切换到NexT.Mist](http://codepub.cn/2016/03/20/Hexo-blog-theme-switching-from-Jacman-to-NexT-Mist/)
 
 
 
