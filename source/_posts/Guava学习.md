@@ -23,17 +23,22 @@ github地址: **[guava](https://github.com/google/guava)**
 
 ## 1.1 使用和避免null：null是模棱两可的，会引起令人困惑的错误，有些时候它让人很不舒服。很多Guava工具类用快速失败拒绝null值，而不是盲目地接受
 
+Optional最常用的一些操作被罗列如下：
+
 ### 创建Optional实例（以下都是静态方法）：
 
-| [Optional.of(T)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#of(T)) | 创建指定引用的Optional实例，若引用为null则快速失败 |
+| 方法                                       | 详细                              |
 | ---------------------------------------- | ------------------------------- |
+| [Optional.of(T)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#of(T)) | 创建指定引用的Optional实例，若引用为null则快速失败 |
 | [Optional.absent()](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#absent()) | 创建引用缺失的Optional实例               |
 | [Optional.fromNullable(T)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#fromNullable(T)) | 创建指定引用的Optional实例，若引用为null则表示缺失 |
 
+
 ### 用Optional实例查询引用（以下都是非静态方法）：
 
-| [boolean isPresent()](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#isPresent()) | 如果Optional包含非null的引用（引用存在），返回true        |
+| 方法                                       | 详细                                       |
 | ---------------------------------------- | ---------------------------------------- |
+| [boolean isPresent()](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#isPresent()) | 如果Optional包含非null的引用（引用存在），返回true        |
 | [T get()](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#get()) | 返回Optional所包含的引用，若引用缺失，则抛出java.lang.IllegalStateException |
 | [T or(T)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#or(T)) | 返回Optional所包含的引用，若引用缺失，返回指定的值            |
 | [T orNull()](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Optional.html#orNull()) | 返回Optional所包含的引用，若引用缺失，返回null            |
