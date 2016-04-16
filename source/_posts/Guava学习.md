@@ -49,6 +49,7 @@ Optional最常用的一些操作被罗列如下：
 ```java
 package p;
 
+import static p.g.*;
 import com.google.common.base.Optional;
 
 import java.util.Iterator;
@@ -68,101 +69,221 @@ public class C0010_Optional {
      * of.
      */
     private static void test1() {
-        g.println("test1 start ------>");
+        println("test1 start ------>");
         Optional<Integer> possible = Optional.of(5); // 创建指定引用的Optional实例，若引用为null则快速失败
 //        Optional<Integer> possible = Optional.of(null); // 创建指定引用的Optional实例，若引用为null则快速失败
         printOptionalValue(possible);
-        g.println("test1 end   ------<");
+        println("test1 end   ------<");
     }
 
     /**
      * absent.
      */
     private static void test2() {
-        g.println("test2 start ------>");
+        println("test2 start ------>");
         Optional<Integer> possible = Optional.absent(); // 创建引用缺失的Optional实例
         printOptionalValue(possible);
-        g.println("test2 end   ------<");
+        println("test2 end   ------<");
     }
 
     /**
      * fromNullable.
      */
     private static void test3() {
-        g.println("test3 start ------>");
+        println("test3 start ------>");
         Integer n1 = null;
         Integer n2 = 4;
         Optional<Integer> possible1 = Optional.fromNullable(n1); // 创建指定引用的Optional实例，若引用为null则表示缺失
         printOptionalValue(possible1);
         Optional<Integer> possible2 = Optional.fromNullable(n2); // 创建指定引用的Optional实例，若引用为null则表示缺失
         printOptionalValue(possible2);
-        g.println("test3 end   ------<");
+        println("test3 end   ------<");
     }
 
     /**
      * or.
      */
     private static void test4() {
-        g.println("test4 start ------>");
+        println("test4 start ------>");
         Integer n1 = null;
         Integer n2 = 5;
         Optional<Integer> possible1 = Optional.fromNullable(n1); // 创建指定引用的Optional实例，若引用为null则表示缺失
         Integer v1 = possible1.or(404); // 返回Optional所包含的引用，若引用缺失，返回指定的值
-        g.println(v1);
+        println(v1);
         Optional<Integer> possible2 = Optional.fromNullable(n2); // 创建指定引用的Optional实例，若引用为null则表示缺失
         Integer v2 = possible2.or(404); // 返回Optional所包含的引用，若引用缺失，返回指定的值
-        g.println(v2);
-        g.println("test4 end   ------<");
+        println(v2);
+        println("test4 end   ------<");
     }
 
     /**
      * orNull.
      */
     private static void test5() {
-        g.println("test5 start ------>");
+        println("test5 start ------>");
         Integer n1 = null;
         Integer n2 = 5;
         Optional<Integer> possible1 = Optional.fromNullable(n1); // 创建指定引用的Optional实例，若引用为null则表示缺失
         Integer v1 = possible1.orNull(); // 返回Optional所包含的引用，若引用缺失，返回null
-        g.println(v1);
+        println(v1);
         Optional<Integer> possible2 = Optional.fromNullable(n2); // 创建指定引用的Optional实例，若引用为null则表示缺失
         Integer v2 = possible2.orNull(); // 返回Optional所包含的引用，若引用缺失，返回null
-        g.println(v2);
-        g.println("test5 end   ------<");
+        println(v2);
+        println("test5 end   ------<");
     }
 
     /**
      * absent.
      */
     private static void test6() {
-        g.println("test6 start ------>");
+        println("test6 start ------>");
         Optional<Integer> possible1 = Optional.absent(); // 创建引用缺失的Optional实例
         final Set<Integer> integers1 = possible1.asSet(); // 返回Optional所包含引用的单例不可变集，如果引用存在，返回一个只有单一元素的集合，如果引用缺失，返回一个空集合。
-        g.println(integers1.size());
+        println(integers1.size());
 
         Optional<Integer> possible2 = Optional.of(5); // 创建引用缺失的Optional实例
         final Set<Integer> integers2 = possible2.asSet(); // 返回Optional所包含引用的单例不可变集，如果引用存在，返回一个只有单一元素的集合，如果引用缺失，返回一个空集合。
         Iterator<Integer> iterator2 = integers2.iterator();
-        g.println(integers2.size());
+        println(integers2.size());
 
-        g.println("test6 end   ------<");
+        println("test6 end   ------<");
     }
 
     private static void printOptionalValue(Optional<Integer> possible) {
         if (possible.isPresent()) { // 如果Optional包含非null的引用（引用存在），返回true
             int v = possible.get(); // 返回Optional所包含的引用，若引用缺失，则抛出java.lang.IllegalStateException
-            g.println(v);
+            println(v);
         } else {
-            g.println("可选值是空的");
+            println("可选值是空的");
         }
     }
 }
-
 ```
 
 
 
 ## 1.2 前置条件: 让方法中的条件检查更简单
+
+| **方法声明（不包括额外参数）******                    | **描述******                               | **检查失败时抛出的异常******        |
+| ---------------------------------------- | ---------------------------------------- | ------------------------- |
+| [checkArgument(boolean)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkArgument(boolean)) | 检查boolean是否为true，用来检查传递给方法的参数。           | IllegalArgumentException  |
+| [checkNotNull(T)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkNotNull(T)) | 检查value是否为null，该方法直接返回value，因此可以内嵌使用checkNotNull。 | NullPointerException      |
+| [checkState(boolean)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkState(boolean)) | 用来检查对象的某些状态。                             | IllegalStateException     |
+| [checkElementIndex(int index, int size)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkElementIndex(int, int)) | 检查index作为索引值对某个列表、字符串或数组是否有效。index>=0 && index<size * | IndexOutOfBoundsException |
+| [checkPositionIndex(int index, int size)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndex(int, int)) | 检查index作为位置值对某个列表、字符串或数组是否有效。index>=0 && index<=size * | IndexOutOfBoundsException |
+| [checkPositionIndexes(int start, int end, int size)](http://docs.guava-libraries.googlecode.com/git-history/release/javadoc/com/google/common/base/Preconditions.html#checkPositionIndexes(int, int, int)) | 检查[start, end]表示的位置范围对某个列表、字符串或数组是否有效*   | IndexOutOfBoundsException |
+
+### 测试代码
+
+```java
+package p;
+
+import static com.google.common.base.Preconditions.*;
+import static p.g.*;
+
+public class C0020_CheckArgument {
+    public static void main(String[] args) {
+        testCheckArgument(true, false);
+        testCheckNotNull("hello", null);
+        testCheckState(true, false);
+
+        testCheckElementIndex(-1, 2);
+        testCheckElementIndex(1, 2);
+        testCheckElementIndex(3, 2);
+
+        testCheckPositionIndex(-1, 2);
+        testCheckPositionIndex(1, 2);
+        testCheckPositionIndex(3, 2);
+
+        testCheckPositionIndexes(-1, 2, 5);
+        testCheckPositionIndexes(1, 2, 5);
+        testCheckPositionIndexes(1, 6, 5);
+    }
+
+    /**
+     * checkPositionIndexes(int start, int end, int size)
+     */
+    private static void testCheckPositionIndexes(int start, int end, int size) {
+        println("testCheckPositionIndexes start ------>");
+        try {
+            checkPositionIndexes(start, end, size);
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckPositionIndexes end   ------<");
+    }
+
+    /**
+     * checkPositionIndex(int index, int size)
+     */
+    private static void testCheckPositionIndex(int index, int size) {
+        println("testCheckPositionIndex start ------>");
+        try {
+            checkPositionIndex(index, size, "index error");
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckPositionIndex end   ------<");
+    }
+
+    /**
+     * checkElementIndex(int index, int size)
+     */
+    private static void testCheckElementIndex(int index, int size) {
+        println("testCheckElementIndex start ------>");
+        try {
+            checkElementIndex(index, size, "index error");
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckElementIndex end   ------<");
+    }
+
+    /**
+     * checkState(boolean)
+     */
+    private static void testCheckState(boolean v1, boolean v2) {
+        println("testCheckState start ------>");
+        try {
+            checkState(v1, "v1 true(v = %s)", v1);
+            checkState(v2, "v2 false(v = %s)", v2);
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckState end   ------<");
+    }
+
+    /**
+     * checkNotNull(T)
+     */
+    private static void testCheckNotNull(String v1, String v2) {
+        println("testCheckArgument start ------>");
+        try {
+            checkNotNull(v1, "v1 not null(v = %s)", v1);
+            checkNotNull(v2, "v2 null(v = %s)", v2);
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckArgument end   ------<");
+    }
+
+    /**
+     * checkArgument(boolean)
+     */
+    private static void testCheckArgument(boolean v1, boolean v2) {
+        println("testCheckArgument start ------>");
+        try {
+            checkArgument(v1, "v1 true(f = %s)", v1);
+            checkArgument(v2, "v2 false(f = %s)", v2);
+        } catch (Exception e) {
+            println(e.getMessage());
+        }
+        println("testCheckArgument end   ------<");
+    }
+}
+```
+
+
 
 ## 1.3 常见Object方法: 简化Object方法实现，如hashCode()和toString()
 
