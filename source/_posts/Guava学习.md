@@ -286,6 +286,7 @@ public class C0020_CheckArgument {
 
 
 ## 1.3 常见Object方法: 简化Object方法实现，如hashCode()和toString()
+// TODO
 
 ## 1.4 排序: Guava强大的”流畅风格比较器”
 
@@ -324,5 +325,3 @@ public class C0020_CheckArgument {
 # 参考文章
 
 - [Google Guava官方教程（中文版）](http://ifeve.com/google-guava/)
-
-
