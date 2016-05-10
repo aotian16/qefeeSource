@@ -19,6 +19,7 @@ date: 2016-05-09 17:33:08
 ```swift
 // 备忘录模式
 // 百度百科：在不破坏封闭的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态
+// 设计模式分类：行为型模式
 
 import Foundation
 typealias Memento = Dictionary<NSObject, AnyObject>
@@ -135,7 +136,6 @@ printGameStateInfo(gameState)
 gameState.restoreFromMemento(CheckPoint.restorePreviousState(keyName: "gameState2")) // 加载第二个存档
 
 printGameStateInfo(gameState)
-
 ```
 
 

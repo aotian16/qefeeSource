@@ -18,6 +18,7 @@ date: 2016-05-10 17:27:52
 ```swift
 // 状态模式
 // 百度百科：允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类
+// 设计模式分类：行为型模式
 
 /// 持有状态的对象
 class Context {
@@ -73,7 +74,6 @@ context.changeStateToAuthorized(userId: "admin")
 (context.isAuthorized, context.userId) // now logged in as "admin"
 context.changeStateToUnauthorized()
 (context.isAuthorized, context.userId)
-
 ```
 
 

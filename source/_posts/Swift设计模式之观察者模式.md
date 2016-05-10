@@ -1,7 +1,6 @@
 title: Swift设计模式之观察者模式
 categories: ios
 tags: 设计模式
-
 date: 2016-05-10 16:07:29
 
 ---
@@ -19,6 +18,7 @@ date: 2016-05-10 16:07:29
 ```swift
 // 观察者模式
 // 一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统
+// 设计模式分类：行为型模式
 
 /// 观察者接口
 protocol PropertyObserver : class {
@@ -68,7 +68,6 @@ var observerInstance = Observer()
 var testChambers = TestChambers()
 testChambers.observer = observerInstance
 testChambers.testChamberNumber += 1
-
 ```
 
 

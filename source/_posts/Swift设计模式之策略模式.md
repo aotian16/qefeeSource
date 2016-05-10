@@ -18,6 +18,7 @@ date: 2016-05-10 17:36:01
 ```swift
 // 策略模式
 // 策略模式定义了一系列的算法，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化
+// 设计模式分类：行为型模式
 
 /**
  *  打印策略接口
@@ -59,7 +60,6 @@ lower.printString("O tempora, o mores!")
 
 var upper = Printer(strategy:UpperCaseStrategy())
 upper.printString("O tempora, o mores!")
-
 ```
 
 

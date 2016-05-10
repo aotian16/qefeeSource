@@ -18,6 +18,7 @@ date: 2016-05-09 14:03:21
 ```swift
 // 命令模式
 // 百度百科：一组行为抽象为对象，实现二者之间的松耦合
+// 设计模式分类：行为型模式
 
 /**
  *  命令接口
@@ -81,7 +82,6 @@ let myTableLamp = TableLamp(light:lightName)
 
 myTableLamp.open()
 myTableLamp.close()
-
 ```
 
 
