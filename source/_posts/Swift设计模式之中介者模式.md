@@ -9,7 +9,7 @@ date: 2016-05-09 17:13:10
 
 **转自**
 
-* [Swift设计模式](http://qefee/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/)
+* [Swift设计模式](http://qefee.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/)
 
 **原文**
 
