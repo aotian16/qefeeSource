@@ -1,6 +1,6 @@
 title: Swift设计模式之组合模式
-categories: qefee
-tags: qefee
+categories: ios
+tags: 设计模式
 date: 2016-05-12 10:21:08
 
 ---
