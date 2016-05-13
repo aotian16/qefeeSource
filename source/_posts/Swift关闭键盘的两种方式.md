@@ -29,6 +29,10 @@ override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     }
 ```
 
+### 参考
+
+* [Close iOS Keyboard by touching anywhere using Swift](http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift)
+
 
 
 <!--more-->
