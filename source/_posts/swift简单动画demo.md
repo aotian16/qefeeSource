@@ -5,6 +5,9 @@ date: 2016-05-15 23:06:06
 
 ---
 
+**from:**
+[swift简单动画demo](http://qefee.com/2016/05/15/swift%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BBdemo/)
+
 <!--head-->
 
 # 动画GIF
