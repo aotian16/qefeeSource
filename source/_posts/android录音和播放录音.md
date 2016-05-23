@@ -33,6 +33,7 @@ android中使用`MediaRecorder`录音， 然后使用`MediaPlayer`播放录音.
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.qefee.pj.testrecord.MainActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,6 +62,18 @@ android中使用`MediaRecorder`录音， 然后使用`MediaPlayer`播放录音.
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/stopPlayRecord"/>
+
+        <Button
+            android:id="@+id/recordInfoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recordInfo"/>
+
+        <TextView
+            android:id="@+id/recordInfoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recordInfo"/>
     </LinearLayout>
 </RelativeLayout>
 ```
@@ -77,6 +90,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -101,6 +115,14 @@ public class MainActivity extends AppCompatActivity {
      * 停止播放录音按钮.
      */
     Button stopPlayRecordButton;
+    /**
+     * 录音信息按钮.
+     */
+    Button recordInfoButton;
+    /**
+     * 录音信息TextView.
+     */
+    TextView recordInfoTextView;
 
     /**
      * 播放器对象.
@@ -132,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
         stopRecordButton = (Button) findViewById(R.id.stopRecordButton);
         playRecordButton = (Button) findViewById(R.id.playRecordButton);
         stopPlayRecordButton = (Button) findViewById(R.id.stopPlayRecordButton);
+        recordInfoButton = (Button) findViewById(R.id.recordInfoButton);
+
+        recordInfoTextView = (TextView) findViewById(R.id.recordInfoTextView);
 
         startRecordButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,6 +236,21 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        recordInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer != null) {
+                    int milliseconds = mediaPlayer.getDuration();
+
+                    recordInfoTextView.setText(String.valueOf(milliseconds));
+
+                    Log.i(TAG, "onClick: 获取录音信息");
+                } else {
+                    Log.i(TAG, "onClick: 播放器没有准备好");
+                }
+            }
+        });
     }
 }
 ```
@@ -225,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
     <string name="stopRecord">停止录音</string>
     <string name="playRecord">播放录音</string>
     <string name="stopPlayRecord">停播录音</string>
+    <string name="recordInfo">录音信息</string>
 </resources>
 ```
 
