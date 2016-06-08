@@ -15,6 +15,14 @@ date: 2016-05-11 14:09:59
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 创建者模式
 // 百度百科：其核心思想是将一个“复杂对象的构建算法”与它的“部件及组装方式”分离，使得构件算法和组装方式可以独立应对变化；复用同样的构建算法可以创建不同的表示，不同的构建过程可以复用相同的部件组装方式
@@ -68,11 +76,3 @@ let empire = DeathStarBuilder { builder in
 
 let deathStar = DeathStar(builder:empire)
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

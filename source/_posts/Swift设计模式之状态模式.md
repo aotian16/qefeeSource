@@ -15,6 +15,14 @@ date: 2016-05-10 17:27:52
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 状态模式
 // 百度百科：允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它的类
@@ -75,11 +83,3 @@ context.changeStateToAuthorized(userId: "admin")
 context.changeStateToUnauthorized()
 (context.isAuthorized, context.userId)
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

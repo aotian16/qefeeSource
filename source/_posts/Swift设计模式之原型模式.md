@@ -15,6 +15,14 @@ date: 2016-05-11 15:18:08
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 原型模式
 // 百度百科：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
@@ -44,11 +52,3 @@ Christoph.name = "Christoph"
 let Eduardo = Prototype.clone()
 Eduardo.name = "Eduardo"
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

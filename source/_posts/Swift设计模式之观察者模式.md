@@ -15,6 +15,14 @@ date: 2016-05-10 16:07:29
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 观察者模式
 // 一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统
@@ -69,11 +77,3 @@ var testChambers = TestChambers()
 testChambers.observer = observerInstance
 testChambers.testChamberNumber += 1
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

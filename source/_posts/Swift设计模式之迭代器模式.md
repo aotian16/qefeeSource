@@ -15,6 +15,14 @@ date: 2016-05-09 16:48:47
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 迭代器模式
 // 百度百科：提供一种方法顺序访问一个聚合对象中的各种元素，而又不暴露该对象的内部表示
@@ -52,11 +60,3 @@ for novella in greatNovellas {
     print("I've read: \(novella)")
 }
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

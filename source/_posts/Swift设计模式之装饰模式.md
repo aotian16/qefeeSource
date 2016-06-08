@@ -15,6 +15,14 @@ date: 2016-05-12 10:31:25
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 装饰模式
 // 百度百科：在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能。它是通过创建一个包装对象，也就是装饰来包裹真实的对象
@@ -106,11 +114,3 @@ print("Cost : \(milkCoffee.getCost()); Ingredients: \(milkCoffee.getIngredients(
 var whipCoffee = WhipCoffee(decoratedCoffee: milkCoffee) // 装饰了whip和牛奶的咖啡
 print("Cost : \(whipCoffee.getCost()); Ingredients: \(whipCoffee.getIngredients())")
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->
