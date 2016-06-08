@@ -15,6 +15,14 @@ date: 2016-05-11 15:23:17
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 单例模式
 // 百度百科：单例模式是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中一个类只有一个实例
@@ -30,11 +38,3 @@ class DeathStarSuperlaser {
 
 let laser = DeathStarSuperlaser.sharedInstance
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

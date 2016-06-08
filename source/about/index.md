@@ -14,16 +14,16 @@ date: 2016-01-13 16:04:46
 
 # Info
 
-| Key        | Value                                   |
-| ---------- | --------------------------------------- |
-| name       | 童进                                      |
-| tel        | 13675829048                             |
-| qq         | 290969084                               |
-| mail       | aotian16@gmail.com                      |
-| site       | [启飞](http://qefee.com)                  |
-| github     | [aotian16](https://github.com/aotian16) |
-| university | 中国计量学院(2005-2009)                       |
-| city       | 杭州                                      |
+| Key        | Value                                    |
+| ---------- | ---------------------------------------- |
+| name       | 童进                                       |
+| tel        | 13675829048                              |
+| QQ         | 290969084                                |
+| mail       | [aotian16@gmail.com](mailto:aotian16@gmail.com) |
+| site       | [启飞](http://qefee.com)                   |
+| github     | [aotian16](https://github.com/aotian16)  |
+| university | 中国计量学院(2005-2009)                        |
+| city       | 杭州                                       |
 
 # Record
 
@@ -53,13 +53,17 @@ date: 2016-01-13 16:04:46
 |  6   |     js     |   -    | ⭐️⭐️⭐️⭐️       |
 |  7   | typescript |   -    | ⭐️⭐️⭐️⭐️       |
 |  8   |   nodejs   |   -    | ⭐️⭐️⭐️⭐️       |
-|  9   |  english   |   -    | ⭐️⭐️⭐️⭐️⭐️     |
-|  10  |     日语     |   -    | ⭐️⭐️⭐️⭐️⭐️     |
+|  9   |  english   |   -    | ⭐️⭐️⭐️⭐️⭐️⭐️   |
+|  10  |     日语     |   -    | ⭐️⭐️⭐️⭐️⭐️⭐️   |
 
-<!--more-->
+# Hobby
 
-<div >
+| No.  | Name  | Detail | Level        |
+| :--: | :---: | :----: | ------------ |
+|  1   |  篮球   |   -    | ⭐️⭐️⭐️⭐️⭐️⭐️ |
+|  2   | dota2 |   -    | ⭐️⭐️⭐️⭐️⭐️⭐️ |
+|  3   |  乒乓   |   -    | ⭐️⭐️⭐️       |
 
-</div>
+
 
 <!--body-->

@@ -16,6 +16,14 @@ date: 2016-05-09 17:33:08
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 备忘录模式
 // 百度百科：在不破坏封闭的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态
@@ -137,11 +145,3 @@ gameState.restoreFromMemento(CheckPoint.restorePreviousState(keyName: "gameState
 
 printGameStateInfo(gameState)
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

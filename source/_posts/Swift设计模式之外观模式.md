@@ -15,6 +15,14 @@ date: 2016-05-12 10:47:50
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 外观模式
 // 百度百科：为子系统中的一组接口提供一个一致的界面，定义一个高层接口，这个接口使得这一子系统更加容易使用
@@ -42,11 +50,3 @@ enum Eternal {
 Eternal.setObj("Disconnect me. I’d rather be nothing", forKey:"Bishop")
 Eternal.getObj("Bishop")
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

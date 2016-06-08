@@ -15,6 +15,14 @@ date: 2016-05-09 14:03:21
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 命令模式
 // 百度百科：一组行为抽象为对象，实现二者之间的松耦合
@@ -83,11 +91,3 @@ let myTableLamp = TableLamp(light:lightName)
 myTableLamp.open()
 myTableLamp.close()
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->

@@ -15,6 +15,14 @@ date: 2016-05-10 20:19:34
 
 * [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift#behavioral)
 
+
+
+<!--more-->
+
+
+
+<!--body-->
+
 ```swift
 // 抽象工厂模式
 // 百度百科：为创建一组相关或相互依赖的对象提供一个接口，而且无需指定他们的具体类
@@ -85,11 +93,3 @@ let factoryTwo = NumberHelper.factoryFor(.Swift)
 let numberTwo = factoryTwo("2")
 numberTwo.stringValue()
 ```
-
-
-
-<!--more-->
-
-
-
-<!--body-->
