@@ -40,15 +40,22 @@ Preferences >>> Editor >>> Appearance
 
 | No.  | shortcut key | type | detail(en)        | detail(cn)                           | recommend  |
 | :--: | ------------ | ---- | ----------------- | ------------------------------------ | ---------- |
-|  1   | ⌥⌘L          | code | Reformat Code     | 格式化代码                                | ⭐️⭐️⭐️     |
+|  1   |              |      |                   |                                      |            |
 |  2   | ⇧⌘U          | edit | Toggle Case       | 转换大小写                                | ⭐️⭐️⭐️     |
 |  3   | ⌥F7          |      |                   | 查看方法或变量的调用                           | ⭐️⭐️⭐️⭐️⭐️ |
 |  4   | ⌃O           | code | Override Methods  | 重写父类方法                               | ⭐️⭐️       |
-|  5   | ^I           | code | Implement Methods | 实现接口方法                               | ⭐️⭐️       |
+|  5   | ⌃I           | code | Implement Methods | 实现接口方法                               | ⭐️⭐️       |
 |  6   | ⌘N           | code | Generate          | 生成（get,set,构造方法等）                    | ⭐️⭐️⭐️⭐️   |
 |  7   | ⌥⌘T          | code | Surround With     | 使用XX包围（if else, try catch, Runable等） | ⭐️⭐️⭐️⭐️   |
+|  8   | ⌘+           | code | Expand            | 展开代码                                 | ⭐️⭐️⭐️     |
+|  9   | ⌘-           | code | Collapse          | 折叠代码                                 | ⭐️⭐️⭐️     |
+|  10  | ⌘/           | code | Line Comment      | 行注释 //                               | ⭐️⭐️⭐️⭐️⭐️ |
+|  11  | ⌥⌘/          | code | Block Comment     | 块注释 /* */                            | ⭐️⭐️⭐️     |
+|      | ⌥⌘L          | code | Reformat Code     | 格式化代码                                | ⭐️⭐️⭐️⭐️   |
 |      |              |      |                   |                                      |            |
 |      |              |      |                   |                                      |            |
+
+
 
 <!--more-->
 
