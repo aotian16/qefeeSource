@@ -1,6 +1,6 @@
 title: android的EditText显示隐藏密码时候的全角问题
-categories: qefee
-tags: qefee
+categories: android
+tags: android
 date: 2016-06-08 10:48:42
 
 ---

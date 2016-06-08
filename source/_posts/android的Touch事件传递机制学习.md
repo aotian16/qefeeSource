@@ -1,6 +1,6 @@
 title: android的Touch事件传递机制学习
-categories: qefee
-tags: qefee
+categories: android
+tags: android
 date: 2016-06-07 20:39:04
 
 ---
