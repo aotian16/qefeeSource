@@ -15,7 +15,7 @@ ViewGroup子类的touch事件相关方法：
 
 | No.  | Name                  | Detail                         |
 | :--: | --------------------- | ------------------------------ |
-|  1   | dispatchTouchEvent    | 分发点击事件。true表示准备处理事件。           |
+|  1   | dispatchTouchEvent    | 分发点击事件。true表示自己处理事件。           |
 |  2   | onInterceptTouchEvent | 拦截点击事件。true表示拦截事件，并不再往子view传播。 |
 |  3   | onTouchEvent          | 处理点击事件。true表示已处理事件。            |
 
@@ -34,39 +34,65 @@ ViewGroup子类的touch事件相关方法：
 ```java
 package com.qefee.pj.testtouchevent;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.content.Context;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MyLinearLayout extends LinearLayout {
+
+    public static int id = 0;
+
+    private int currentId = id;
 
     /**
-     * log tag for MainActivity
+     * log tag for MyLinearLayout
      */
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MyLinearLayout";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public MyLinearLayout(Context context) {
+        super(context);
+        currentId = id++;
+    }
+
+    public MyLinearLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        currentId = id++;
+    }
+
+    public MyLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        currentId = id++;
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         int action = ev.getAction();
-        Log.i(TAG, " dispatchTouchEvent: action = " + action);
+        Log.i(TAG, currentId + " dispatchTouchEvent: action = " + action);
         boolean b = super.dispatchTouchEvent(ev);
-        Log.i(TAG, " dispatchTouchEvent: return = " + b);
+//        b = currentId == 1;
+        Log.i(TAG, currentId + " dispatchTouchEvent: return = " + b);
+        return b;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        int action = ev.getAction();
+        Log.i(TAG, currentId + " onInterceptTouchEvent: action = " + action);
+        boolean b = super.onInterceptTouchEvent(ev);
+//        b = currentId == 1;
+        Log.i(TAG, currentId + " onInterceptTouchEvent: return = " + b);
         return b;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         int action = ev.getAction();
-        Log.i(TAG, " onTouchEvent: action = " + action);
+        Log.i(TAG, currentId + " onTouchEvent: action = " + action);
         boolean b = super.onTouchEvent(ev);
-        Log.i(TAG, " onTouchEvent: return = " + b);
+//        b = currentId == 1;
+        Log.i(TAG, currentId + " onTouchEvent: return = " + b);
         return b;
     }
 }
@@ -190,13 +216,19 @@ public class MyLinearLayout extends LinearLayout {
 
 # Touch Event Dispatch
 
-## No.1
+下面几个demo使用可以看出事件的传递方法。
+
+自己也可以动手修改下试试。
+
+## No.1 使用原始事件1
 
 ### action
 
-点击view2
+点击view2。就是最上面那个框。
 
 ### log
+
+从日志可以看出，在没有打断的情况下，点击事件是一层层往下传递的，然后一层层往上传回。
 
 ```
 06-08 14:30:10.285 9506-9506/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 0
@@ -232,4 +264,161 @@ public class MyLinearLayout extends LinearLayout {
 
 ![TouchEvent0](https://github.com/aotian16/Blog/blob/master/Study/Dev/Android/android%E7%9A%84Touch%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0/TouchEvent0.png?raw=true)
 
-todo…..
+## No.2 使用原始事件2
+
+### action
+
+点击view1，就是中间那个框。
+
+### log
+
+点击view2也是同样情况。
+
+```
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: action = 0
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: return = false
+06-12 17:45:48.553 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = false
+06-12 17:45:48.573 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 2
+06-12 17:45:48.573 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: action = 2
+06-12 17:45:48.573 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: return = false
+06-12 17:45:48.573 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = false
+06-12 17:45:48.670 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 1
+06-12 17:45:48.670 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: action = 1
+06-12 17:45:48.670 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: return = false
+06-12 17:45:48.670 11255-11255/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = false
+```
+
+
+
+### image
+
+![touch event](https://github.com/aotian16/Blog/blob/master/Study/Dev/Android/android%E7%9A%84Touch%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0/TouchEvent2.png?raw=true)
+
+## No.3
+
+这里的流程图和No.2一样。区别是， 3是由于`onInterceptTouchEvent`打断才不再继续传递事件，而2是只点击了view1.
+
+由于`onInterceptTouchEvent`的打断，事件在view1中不再往下传递，而是view1自己处理。
+
+### action
+
+1，(原始代码基础上)修改`onInterceptTouchEvent`的代码
+
+```java
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        int action = ev.getAction();
+        Log.i(TAG, currentId + " onInterceptTouchEvent: action = " + action);
+        boolean b = super.onInterceptTouchEvent(ev);
+        b = currentId == 1;
+        Log.i(TAG, currentId + " onInterceptTouchEvent: return = " + b);
+        return b;
+    }
+```
+
+2，点击view2
+
+### log
+
+```
+06-12 18:59:57.198 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 0
+06-12 18:59:57.202 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: action = 0
+06-12 18:59:57.205 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: action = 0
+06-12 18:59:57.205 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: return = false
+06-12 18:59:57.208 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: action = 0
+06-12 18:59:57.208 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: action = 0
+06-12 18:59:57.208 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: return = true
+06-12 18:59:57.208 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: action = 0
+06-12 18:59:57.212 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: return = false
+06-12 18:59:57.212 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: return = false
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onTouchEvent: action = 0
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onTouchEvent: return = false
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: return = false
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: action = 0
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: return = false
+06-12 18:59:57.218 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = false
+06-12 18:59:57.245 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 1
+06-12 18:59:57.248 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: action = 1
+06-12 18:59:57.248 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  onTouchEvent: return = false
+06-12 18:59:57.248 23353-23353/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = false
+```
+
+
+
+### image
+
+![TouchEvent0](https://github.com/aotian16/Blog/blob/master/Study/Dev/Android/android%E7%9A%84Touch%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0/TouchEvent1.png?raw=true)
+
+## No.4
+
+view1的`onTouchEvent`返回`true`表示处理了该事件。
+
+### action
+
+1，(原始代码基础上)修改`onTouchEvent`的代码
+
+```java
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        int action = ev.getAction();
+        Log.i(TAG, currentId + " onTouchEvent: action = " + action);
+        boolean b = super.onTouchEvent(ev);
+        b = currentId == 1;
+        Log.i(TAG, currentId + " onTouchEvent: return = " + b);
+        return b;
+    }
+```
+
+2，点击view2
+
+### log
+
+```
+06-12 19:07:57.783 28831-28831/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: return = false
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onInterceptTouchEvent: return = false
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 dispatchTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 onInterceptTouchEvent: action = 0
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 onInterceptTouchEvent: return = false
+06-12 19:07:57.786 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 onTouchEvent: action = 0
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 onTouchEvent: return = false
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 2 dispatchTouchEvent: return = false
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: action = 0
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: return = true
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: return = true
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: return = true
+06-12 19:07:57.789 28831-28831/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = true
+06-12 19:07:57.813 28831-28831/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: action = 1
+06-12 19:07:57.816 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: action = 1
+06-12 19:07:57.816 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: action = 1
+06-12 19:07:57.816 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 onInterceptTouchEvent: return = false
+06-12 19:07:57.816 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: action = 1
+06-12 19:07:57.819 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: action = 1
+06-12 19:07:57.819 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 onTouchEvent: return = true
+06-12 19:07:57.819 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 1 dispatchTouchEvent: return = true
+06-12 19:07:57.819 28831-28831/com.qefee.pj.testtouchevent I/MyLinearLayout: 0 dispatchTouchEvent: return = true
+06-12 19:07:57.819 28831-28831/com.qefee.pj.testtouchevent I/MainActivity:  dispatchTouchEvent: return = true
+```
+
+
+
+### image
+
+略。同No.1
