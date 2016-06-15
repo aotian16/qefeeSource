@@ -9,6 +9,10 @@ date: 2016-06-07 20:39:04
 
 [TOC]
 
+**原文地址**
+
+[android的Touch事件传递机制学习](http://qefee.com/2016/06/07/android%E7%9A%84Touch%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6%E5%AD%A6%E4%B9%A0/)
+
 # Reffer Methods
 
 ViewGroup子类的touch事件相关方法：
@@ -422,3 +426,9 @@ view1的`onTouchEvent`返回`true`表示处理了该事件。
 ### image
 
 略。同No.1
+
+# 参考文章
+
+* [Android Touch事件传递机制解析](http://www.cnblogs.com/jqyp/archive/2012/04/25/2469758.html)
+
+* [Android dispatchTouchEvent介绍](http://mobile.51cto.com/abased-374715.htm)
