@@ -1,6 +1,6 @@
 title: android的ViewPager实现自动播放
-categories: qefee
-tags: qefee
+categories: android
+tags: viewpager
 date: 2016-06-15 18:03:51
 
 ---
@@ -10,6 +10,10 @@ date: 2016-06-15 18:03:51
 上次实现了`ViewPager`的循环播放[android的ViewPager实现伪循环效果](http://qefee.com/2016/06/15/android%E7%9A%84ViewPager%E5%AE%9E%E7%8E%B0%E4%BC%AA%E5%BE%AA%E7%8E%AF%E6%95%88%E6%9E%9C/)， 这次来实现自动播放.
 
 非常简单， 直接用`ScheduledExecutorService`就好了.
+
+#### 原文
+
+[android的ViewPager实现自动播放](http://qefee.com/2016/06/15/android%E7%9A%84ViewPager%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/)
 
 #### Code
 

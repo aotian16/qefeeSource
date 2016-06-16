@@ -1,6 +1,6 @@
 title: android的ViewPager实现伪循环效果
-categories: qefee
-tags: qefee
+categories: android
+tags: viewpager
 date: 2016-06-15 15:04:56
 
 ---
