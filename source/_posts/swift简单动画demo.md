@@ -1,6 +1,6 @@
 title: swift简单动画demo
-categories: qefee
-tags: qefee
+categories: swift
+tags: 动画
 date: 2016-05-15 23:06:06
 
 ---

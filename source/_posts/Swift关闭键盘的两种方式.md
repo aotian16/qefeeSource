@@ -1,6 +1,6 @@
 title: Swift关闭键盘的两种方式
-categories: qefee
-tags: qefee
+categories: swift
+tags: swift
 date: 2016-05-13 15:45:48
 
 ---
