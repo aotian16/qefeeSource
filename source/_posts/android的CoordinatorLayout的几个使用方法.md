@@ -24,6 +24,10 @@ date: 2016-07-21 17:02:29
 
 ### 代码
 
+<!--more-->
+
+<!--body-->
+
 先添加依赖
 
 ```groovy
@@ -446,9 +450,3 @@ public class MainActivity extends AppCompatActivity {
 ### 参考文章
 
 * [android CoordinatorLayout使用](http://blog.csdn.net/xyz_lmn/article/details/48055919)
-
-<!--more-->
-
-
-
-<!--body-->
