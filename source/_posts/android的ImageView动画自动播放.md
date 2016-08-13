@@ -1,6 +1,6 @@
 title: android的ImageView动画自动播放
-categories: qefee
-tags: qefee
+categories: android
+tags: animate
 date: 2016-07-27 16:33:20
 
 ---
